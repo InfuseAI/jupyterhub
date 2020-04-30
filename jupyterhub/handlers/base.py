@@ -568,8 +568,7 @@ class BaseHandler(RequestHandler):
             self.set_session_cookie()
 
         # create and set a new cookie token for the hub
-        if not self.get_current_user_cookie():
-            self.set_hub_cookie(user)
+        self.set_hub_cookie(user)
 
     def authenticate(self, data):
         return maybe_future(self.authenticator.get_authenticated_user(self, data))
